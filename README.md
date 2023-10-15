@@ -61,4 +61,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 # Author : Yussuf S. Safia
 
-- Feel free to visit our website, www.gluteup.com, and start your glute transformation journey today!
+- Feel free to visit our website, (https://v-syussuf.github.io/Phase-1-Project/), and start your glute transformation journey today!
