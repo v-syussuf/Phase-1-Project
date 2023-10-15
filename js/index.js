@@ -4,6 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
      getExercises();
 });
 
+// Function to render exercises on our browser
+function renderExercises(exercises){
+  const container = document.querySelector('.exercises');
+  
+  exercises.forEach((exercise) => {
+    const exerciseName = document.createElement('h1');
+    exerciseName.textContent = exercise.name;
+    exerciseName.addEventListener('click', () => {
+    renderExercise(exercise);
+   });
+   container.appendChild(exerciseName);
+  });
+}
+
+
 
 // function to fetch a list of exercises from our API
  function getExercises(){
