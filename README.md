@@ -27,7 +27,7 @@
 . Join us on the path to a healthier, happier you!
 
 # Getting Started
-To get started with GluteUp, you can visit our website at www.gluteup.com.
+To get started with GluteUp, you can visit our website at https://v-syussuf.github.io/Phase-1-Project/.
 
 # How to Use
 Our website is easy to navigate. Here's a quick overview of the sections you'll find:
