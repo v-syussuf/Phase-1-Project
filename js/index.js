@@ -4,45 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
      getExercises();
 });
 
-// Function to render exercises on our browser
-function renderExercises(exercises){
-  const container = document.querySelector('.exercises');
-  
-  exercises.forEach((exercise) => {
-    const exerciseName = document.createElement('h1');
-    exerciseName.textContent = exercise.name;
-    exerciseName.addEventListener('click', () => {
-    renderExercise(exercise);
-   });
-   container.appendChild(exerciseName);
-  });
+
+
+let menu = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.header .nav');
+
+menu.onclick = () =>{
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
+};
+
+window.onscroll = () =>{
+  menu.classList.remove('fa-times');
+  navbar.classList.remove('active');
+
+  if(window.scrollY > 0){
+    document.querySelector('.header').classList.add('active');
+  } else{
+    document.querySelector('.header').classList.remove('active');
+  }
 }
 
-// Function to render the exercise details
-function renderExercise(exercise){
-  const container = document.querySelector('.exercise-details');
-  
-  container.innerHTML = '';
-  const exerciseType = document.createElement('exerciseType');
-  exerciseType.textContent = (`Exercise type : ${exercise.type}`);
-  container.appendChild(exerciseType);
-
-
-  const exerciseEquip = document.createElement('exerciseEquip');
-  exerciseEquip.textContent = (`Equipment : ${exercise.equipment}`);
-  container.appendChild(exerciseEquip); 
-
-  const exerciseDiff = document.createElement('exerciseDiff');
-  exerciseDiff.textContent = (`Difficulty : ${exercise.difficulty}`);
-  container.appendChild(exerciseDiff); 
-
-
-  const exerciseInstruc = document.createElement('exerciseInstruc');
-  exerciseInstruc.textContent = (`Instructions : ${exercise.instructions}`);
-  container.appendChild(exerciseInstruc); 
-
-
-}
 
 // function to fetch a list of exercises from our API
  function getExercises(){
