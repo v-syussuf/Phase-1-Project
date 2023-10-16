@@ -232,6 +232,29 @@ body{
     height: 300rem;
 }
 
+.counter{
+    background: url(../images/counter-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .box-container{
+        @include grid(25rem);
+
+        .box{
+            text-align: center;
+
+            h3{
+                font-size: 5rem;
+                color: $orange;
+            }
+
+            p{
+                @include title-text(2rem);
+            }
+        }
+    }
+}
+
 
 
 
