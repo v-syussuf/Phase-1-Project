@@ -60,7 +60,7 @@ function renderExercises(exercises) {
       exerciseContent.appendChild(exerciseInfo);
 
       const readMoreLink = document.createElement('a');
-      readMoreLink.href = exercise.link;
+   
       readMoreLink.textContent = 'Read More';
       readMoreLink.classList.add('link-btn');
       exerciseContent.appendChild(readMoreLink);
@@ -98,6 +98,25 @@ function renderExercise(exercise) {
   exerciseInstruc.textContent = `Instructions: ${exercise.instructions}`;
   container.appendChild(exerciseInstruc);
 }
+// Function to open the exercise modal
+function openExerciseModal(exercise) {
+  const modal = document.querySelector('.exercise-modal');
+  const exerciseDetails = modal.querySelector('.exercise-details');
+
+  exerciseDetails.innerHTML = `
+    <p><strong>Exercise type:</strong> ${exercise.type}</p>
+    <p><strong>Equipment:</strong> ${exercise.equipment}</p>
+    <p><strong>Difficulty:</strong> ${exercise.difficulty}</p>
+    <p class="instructions"><strong>Instructions:</strong><br>${exercise.instructions}</p>
+  `;
+  modal.style.display = 'block';
+
+  function closeExerciseModal() {
+  const modal = document.querySelector('.exercise-modal');
+  modal.style.display = 'none';
+}
+}
+
 
 
 // function to fetch a list of exercises from our API
