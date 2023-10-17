@@ -25,6 +25,80 @@ window.onscroll = () =>{
   }
 }
 
+// Function to render exercises on the page
+function renderExercises(exercises) {
+  const container = document.querySelector('.exercises');
+
+  exercises.forEach((exercise) => {
+      const exerciseBox = document.createElement('div');
+      exerciseBox.classList.add('box');
+
+      // Exercise image
+      const exerciseImage = document.createElement('div');
+      exerciseImage.classList.add('image');
+      const image = document.createElement('img');
+      const defaultImageIndex = exercises.indexOf(exercise) + 1; 
+      image.src = `images/img-${defaultImageIndex}.jpg`;
+      image.alt = exercise.name;
+      exerciseImage.appendChild(image);
+
+
+      // Exercise content
+      const exerciseContent = document.createElement('div');
+      exerciseContent.classList.add('content');
+
+      const exerciseName = document.createElement('h3');
+      exerciseName.textContent = exercise.name;
+      exerciseContent.appendChild(exerciseName);
+
+      const exerciseInfo = document.createElement('div');
+      exerciseInfo.classList.add('icons');
+      exerciseInfo.innerHTML = `
+          <span><i class="fas fa-calendar"></i>mon - sat</span>
+          <span><i class="fas fa-clock"></i>1 hour</span>
+      `;
+      exerciseContent.appendChild(exerciseInfo);
+
+      const readMoreLink = document.createElement('a');
+      readMoreLink.href = exercise.link;
+      readMoreLink.textContent = 'Read More';
+      readMoreLink.classList.add('link-btn');
+      exerciseContent.appendChild(readMoreLink);
+
+      exerciseBox.appendChild(exerciseImage);
+      exerciseBox.appendChild(exerciseContent);
+
+      // Add a click event listener to show exercise details
+      exerciseBox.addEventListener('click', () => {
+          renderExercise(exercise);
+      });
+
+      container.appendChild(exerciseBox);
+  });
+}
+
+// Function to render the exercise details
+function renderExercise(exercise) {
+  const container = document.querySelector('.exercise-details');
+  container.innerHTML = '';
+
+  const exerciseType = document.createElement('p');
+  exerciseType.textContent = `Exercise type: ${exercise.type}`;
+  container.appendChild(exerciseType);
+
+  const exerciseEquip = document.createElement('p');
+  exerciseEquip.textContent = `Equipment: ${exercise.equipment}`;
+  container.appendChild(exerciseEquip);
+
+  const exerciseDiff = document.createElement('p');
+  exerciseDiff.textContent = `Difficulty: ${exercise.difficulty}`;
+  container.appendChild(exerciseDiff);
+
+  const exerciseInstruc = document.createElement('p');
+  exerciseInstruc.textContent = `Instructions: ${exercise.instructions}`;
+  container.appendChild(exerciseInstruc);
+}
+
 
 // function to fetch a list of exercises from our API
  function getExercises(){
