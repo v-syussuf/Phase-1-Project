@@ -102,6 +102,7 @@ function renderExercise(exercise) {
 function openExerciseModal(exercise) {
   const modal = document.querySelector('.exercise-modal');
   const exerciseDetails = modal.querySelector('.exercise-details');
+  const closeBtn = modal.querySelector('.close-btn');
 
   exerciseDetails.innerHTML = `
     <p><strong>Exercise type:</strong> ${exercise.type}</p>
@@ -111,10 +112,16 @@ function openExerciseModal(exercise) {
   `;
   modal.style.display = 'block';
 
+  closeBtn.addEventListener('click', () => {
+    closeExerciseModal();
+  });
+
+  // Function to close the exercise modal
   function closeExerciseModal() {
   const modal = document.querySelector('.exercise-modal');
   modal.style.display = 'none';
 }
+
 }
 
 
